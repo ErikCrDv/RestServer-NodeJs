@@ -6,8 +6,8 @@ class Server {
 
     constructor(){
         this.port = process.env.PORT;
+        this.authPath = '/api/auth';
         this.usuariosPath = '/api/users';
-
         
         // Server app
         this.app = express();
@@ -34,7 +34,8 @@ class Server {
 
     routes() {
         // User Routes
-        this.app.use( this.usuariosPath , require( '../routes/user' ) )
+        this.app.use( this.authPath , require( '../routes/auth' ) );
+        this.app.use( this.usuariosPath , require( '../routes/user' ) );
     }
 
     listen(){
