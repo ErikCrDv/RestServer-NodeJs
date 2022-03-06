@@ -21,7 +21,7 @@ const hasRole = ( ...roles ) => ( req = request, res = response, next ) => {
     });
     
     if( !roles.includes( req.authUser.role ) ) return res.status( 401 ).json({
-        msg: 'Role no  valido'
+        msg: 'Role no valido'
     });
     
     next();
